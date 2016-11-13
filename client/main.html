@@ -1,19 +1,27 @@
 <head>
     <title>ShitYouHearAtHackathons</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
-<div class="container">
-    <div class="text-center">
-        <h1>💩 Shit You Hear At Hackathons 💩</h1>
+    <div class="container">
+        <div class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header" style="width: 100%;">
+                    <div>
+                        <h1 style="text-align: center;">💩 Shit You Hear At Hackathons 💩</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form class="whitebg">
+            <input placeholder="Name" class="form-control" id="posterName" />
+            <textarea placeholder="What'd ya hear?" class="form-control" id="content"></textarea>
+            <button class="btn btn-success" type="submit">Save</button>
+        </form>
+        {{#each posts}} {{>post}} {{/each}}
     </div>
-    <form>
-        <input placeholder="Name" class="form-control" id="posterName" />
-        <textarea placeholder="What'd ya hear?" class="form-control" id="content"></textarea>
-        <button class="btn btn-success" type="submit">Save</button>
-    </form>
-    {{#each posts}} {{>post}} {{/each}}
-</div>
 </body>
 <template name="post">
     <div class="well">
