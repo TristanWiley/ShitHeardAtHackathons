@@ -16,9 +16,17 @@
         </div>
     </div>
     <form class="whitebg">
-        <input placeholder="Name" class="form-control" id="posterName" />
-        <textarea placeholder="What'd ya hear?" class="form-control" id="content"></textarea>
-        <button class="btn btn-success" type="submit">Save</button>
+        <input placeholder="Name" class="form-control" id="posterName" required/>
+        <textarea placeholder="What'd ya hear?" class="form-control" id="content" required></textarea>
+        <div class="row">
+            <div class="col-md-2">
+                <button class="btn btn-success" type="submit">Save</button>
+            </div>
+            <div class="text-right">
+                <button class="btn" style="display: inline" id="sortDate">Date</button>
+                <button class="btn" style="display: inline" id="sortUp">Up Votes</button>
+            </div>
+        </div>
     </form>
     {{#each posts}} {{>post}} {{/each}}
 </div>

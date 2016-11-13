@@ -1,4 +1,5 @@
 import { Template } from 'meteor/templating';
+import { Session } from 'meteor/session'
 
 import './main.html';
 
@@ -38,12 +39,24 @@ Template.body.events({
 
 			localStorage.setItem(id, 'down');
 		}
+	},
+	'click #sortDate': function(event){
+		event.preventDefault();
+		Session.set('sortBy', 'date');
+	},
+	'click #sortUp': function(){
+		event.preventDefault();
+		Session.set('sortBy', 'up');
 	}
 });
 
 Template.body.helpers({
 	'posts': function() {
-		return Post.find({}, { sort: { "createdAt": -1 } })
+		if (Session.get('sortBy') == 'up'){
+			return Post.find({}, { sort: { "upVotes": -1 } })
+		} else {
+			return Post.find({}, {sort: {"createdAt": -1}})
+		}
 	}
 });
 
