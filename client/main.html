@@ -3,17 +3,17 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="text-center">
-            <h1>💩 Shit You Hear At Hackathons 💩</h1>
-        </div>
-        <form>
-            <input placeholder="Name" class="form-control" id="posterName" />
-            <textarea placeholder="What'd ya hear?" class="form-control" id="content"></textarea>
-            <button class="btn btn-success" type="submit">Save</button>
-        </form>
-        {{#each posts}} {{>post}} {{/each}}
+<div class="container">
+    <div class="text-center">
+        <h1>💩 Shit You Hear At Hackathons 💩</h1>
     </div>
+    <form>
+        <input placeholder="Name" class="form-control" id="posterName" />
+        <textarea placeholder="What'd ya hear?" class="form-control" id="content"></textarea>
+        <button class="btn btn-success" type="submit">Save</button>
+    </form>
+    {{#each posts}} {{>post}} {{/each}}
+</div>
 </body>
 <template name="post">
     <div class="well">
