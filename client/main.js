@@ -79,7 +79,7 @@ Tracker.autorun(function () {
 				}
 			}
 		}
-	}, 10);
+	}, 1000);
 });
 
 Handlebars.registerHelper('breaklines', function(text){
