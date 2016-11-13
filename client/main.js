@@ -81,3 +81,7 @@ Tracker.autorun(function () {
 		}
 	}, 10);
 });
+
+Handlebars.registerHelper('breaklines', function(text){
+	return new Handlebars.SafeString(text.replace(/(\r\n|\n|\r)/gm, '<br>'));
+});

@@ -16,8 +16,8 @@
         </div>
     </div>
     <form class="whitebg">
-        <input placeholder="Name" class="form-control" id="posterName" required/>
         <textarea placeholder="What'd ya hear?" class="form-control" id="content" required></textarea>
+        <input placeholder="Name" class="form-control" id="posterName" required/>
         <div class="row">
             <div class="col-md-2">
                 <button class="btn btn-success" type="submit">Save</button>
@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="col-md-11">
-                <h4>{{content}}</h4>
+                <h4>{{breaklines content}}</h4>
                 <p>{{name}}</p>
             </div>
         </div>
