@@ -4,6 +4,8 @@ import './main.html';
 
 import { Post } from '../lib/models/Posts';
 
+$.material.init()
+
 Template.body.events({
     'submit form': function(event) {
         event.preventDefault();
