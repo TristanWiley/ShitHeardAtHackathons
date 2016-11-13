@@ -17,11 +17,12 @@ Template.body.events({
 	},
 	'click .fa-arrow-up': function(event) {
 		var id = event.target.id;
+		console.log(id, localStorage.getItem(id));
 		if (!localStorage.getItem(id)) {
 			var post = Post.findOne(id);
 			post.upVotes++;
 			$(event.target).css('color', 'green');
-			post.save();
+			post.save({fields: ['upVotes']});
 
 			localStorage.setItem(id, 'up');
 		}
@@ -33,7 +34,7 @@ Template.body.events({
 			var post = Post.findOne(id);
 			post.upVotes--;
 			$(event.target).css('color', 'red');
-			post.save();
+			post.save({fields: ['upVotes']});
 
 			localStorage.setItem(id, 'down');
 		}
@@ -42,26 +43,25 @@ Template.body.events({
 
 Template.body.helpers({
 	'posts': function() {
-		return Post.find({}, { sort: { "publishedAt": -1 } })
+		return Post.find({}, { sort: { "createdAt": -1 } })
 	}
 });
 
-// $(function(){Tracker.autorun(function () {
-// 	for (var i = 0; i < localStorage.length; i++){
-// 		const id = localStorage.key(i);
-// 		const type = localStorage.getItem(id);
-//
-// 		if (id && id.length==17) {
-// 			if (type === "up") {
-// 				const selector = '.fa-arrow-up'+'#' + id;
-// 				$(selector).css('color', 'green');
-// 				console.log(selector);
-// 			} else {
-// 				console.log(selector);
-// 				const selector = '.fa-arrow-down'+'#' + id;
-// 				$(selector).css('color', 'red');
-// 			}
-// 		}
-// 	}
-// })
-// })
+Tracker.autorun(function () {
+	setTimeout(()=>{
+		for (var i = 0; i < localStorage.length; i++){
+			const id = localStorage.key(i);
+			const type = localStorage.getItem(id);
+
+			if (id && id.length==17) {
+				if (type === "up") {
+					const selector = '.fa-arrow-up'+'#' + id;
+					$(selector).css('color', 'green');
+				} else {
+					const selector = '.fa-arrow-down'+'#' + id;
+					$(selector).css('color', 'red');
+				}
+			}
+		}
+	}, 10);
+});
