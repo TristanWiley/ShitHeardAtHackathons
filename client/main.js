@@ -14,6 +14,9 @@ Template.body.events({
 			name: $('#posterName').val()
 		});
 
+		$('#content').val("");
+		$('#posterName').val("");
+
 		newPost.save();
 	},
 	'click .fa-arrow-up': function(event) {
